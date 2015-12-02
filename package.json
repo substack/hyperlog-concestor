@@ -11,7 +11,8 @@
   "license": "BSD",
   "devDependencies": {
     "hyperlog": "^4.7.0",
-    "memdb": "^1.0.1"
+    "memdb": "^1.0.1",
+    "tape": "^4.2.2"
   },
   "dependencies": {
     "has": "^1.0.1",
