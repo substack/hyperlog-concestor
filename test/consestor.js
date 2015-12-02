@@ -4,7 +4,7 @@ var test = require('tape')
 var memdb = require('memdb')
 
 test('concestor', function (t) {
-  t.plan(1)
+  t.plan(3)
   var db = memdb()
   var log = hyperlog(db, { valueEncoding: 'json' })
 
@@ -39,6 +39,14 @@ test('concestor', function (t) {
     concestor(log, [ hashes.G, hashes.F, hashes.E ], function (err, cons) {
       var cs = cons.map(function (hash) { return names[hash] })
       t.deepEqual(cs, [ 'B' ])
+    })
+    concestor(log, [ hashes.C, hashes.B, hashes.I ], function (err, cons) {
+      var cs = cons.map(function (hash) { return names[hash] })
+      t.deepEqual(cs, [ 'B' ])
+    })
+    concestor(log, [ hashes.G, hashes.I ], function (err, cons) {
+      var cs = cons.map(function (hash) { return names[hash] })
+      t.deepEqual(cs, [ 'G' ])
     })
   }
 })
