@@ -6,7 +6,15 @@
   "scripts": {
     "test": "tape test/*.js"
   },
-  "keywords": [],
+  "keywords": [
+    "merkle",
+    "dag",
+    "concestor",
+    "common",
+    "ancestor",
+    "ancestry",
+    "recent"
+  ],
   "author": "substack",
   "license": "BSD",
   "devDependencies": {
@@ -17,5 +25,17 @@
   "dependencies": {
     "has": "^1.0.1",
     "uniq": "^1.0.1"
-  }
+  },
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substack/hyperlog-concestor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/substack/hyperlog-concestor/issues"
+  },
+  "homepage": "https://github.com/substack/hyperlog-concestor#readme"
 }
