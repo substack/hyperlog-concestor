@@ -4,10 +4,6 @@ var test = require('tape')
 var memdb = require('memdb')
 
 test('disjoint', function (t) {
-  t.plan(2)
-  var db = memdb()
-  var log = hyperlog(db, { valueEncoding: 'json' })
-
   var links = {
     A: [],
     B: ['A'],
@@ -19,6 +15,10 @@ test('disjoint', function (t) {
     H: ['F','G'],
     I: ['H']
   }
+  t.plan(2 + Object.keys(links).length)
+
+  var db = memdb()
+  var log = hyperlog(db, { valueEncoding: 'json' })
 
   var keys = Object.keys(links)
   var nodes = {}, names = {}, hashes = {}
@@ -28,6 +28,7 @@ test('disjoint', function (t) {
     var key = keys.shift()
     var ln = links[key].map(function (link) { return hashes[link] })
     log.add(ln, key, function (err, node) {
+      t.ifError(err)
       nodes[key] = node
       hashes[key] = node.key
       names[node.key] = key
