@@ -1,0 +1,18 @@
+{
+  "name": "hyperlog-concestor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "substack",
+  "license": "BSD",
+  "devDependencies": {
+    "hyperlog": "^4.7.0"
+  },
+  "dependencies": {
+    "uniq": "^1.0.1"
+  }
+}
