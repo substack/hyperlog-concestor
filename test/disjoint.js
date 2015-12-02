@@ -15,7 +15,7 @@ test('disjoint', function (t) {
     H: ['F','G'],
     I: ['H']
   }
-  t.plan(2 + Object.keys(links).length)
+  t.plan(4 + Object.keys(links).length)
 
   var db = memdb()
   var log = hyperlog(db, { valueEncoding: 'json' })
@@ -39,11 +39,19 @@ test('disjoint', function (t) {
   function ready () {
     concestor(log, [ hashes.D, hashes.G, hashes.H ], function (err, cons) {
       var cs = cons.map(function (hash) { return names[hash] })
-      t.deepEqual(cs, [])
+      t.deepEqual(cs, [], 'D,G,H: []')
     })
     concestor(log, [ hashes.I, hashes.A ], function (err, cons) {
       var cs = cons.map(function (hash) { return names[hash] })
-      t.deepEqual(cs, [])
+      t.deepEqual(cs, [], 'I,A: []')
+    })
+    concestor(log, [ hashes.B ], function (err, cons) {
+      var cs = cons.map(function (hash) { return names[hash] })
+      t.deepEqual(cs, [ 'B' ], 'B: [B]')
+    })
+    concestor(log, [], function (err, cons) {
+      var cs = cons.map(function (hash) { return names[hash] })
+      t.deepEqual(cs, [], '[]: []')
     })
   }
 })

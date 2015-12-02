@@ -1,10 +1,10 @@
 {
   "name": "hyperlog-concestor",
   "version": "1.0.0",
-  "description": "",
+  "description": "compute the most recent common ancestor among nodes in a hyperlog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/*.js"
   },
   "keywords": [],
   "author": "substack",
