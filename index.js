@@ -1,4 +1,5 @@
 var uniq = require('uniq')
+var has = require('has')
 
 module.exports = function (log, hashes, cb) {
   var seen = {}
@@ -10,9 +11,9 @@ module.exports = function (log, hashes, cb) {
 
   ;(function next (hashes) {
     var results = null 
-    for (var i = 0 i < hashes.length i++) {
+    for (var i = 0; i < hashes.length; i++) {
       var hs = hashes[i]
-      for (var j = 0 j < hs.length j++) {
+      for (var j = 0; j < hs.length; j++) {
         var hash = hs[j]
         if (!has(seenh[i], hash)) {
           seenh[i][hash] = true
@@ -35,7 +36,7 @@ module.exports = function (log, hashes, cb) {
       hs.forEach(function (hash) {
         log.get(hash, function (err, value) {
           if (value && Array.isArray(value.links)) {
-            prev[ix].push.apply(prev[ix], value.links.map(hashOf))
+            prev[ix].push.apply(prev[ix], value.links)
           }
           if (-- pending === 0) next(prev)
         })

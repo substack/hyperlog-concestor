@@ -10,9 +10,11 @@
   "author": "substack",
   "license": "BSD",
   "devDependencies": {
-    "hyperlog": "^4.7.0"
+    "hyperlog": "^4.7.0",
+    "memdb": "^1.0.1"
   },
   "dependencies": {
+    "has": "^1.0.1",
     "uniq": "^1.0.1"
   }
 }
